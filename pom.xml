@@ -54,7 +54,12 @@
           resources, i.e. build is platform dependent! -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         
+        <version.jbossas.bom>7.2.0.Alpha1-redhat-4</version.jbossas.bom>
+        <version.jboss.integration.bom>6.0.0.CR1</version.jboss.integration.bom>
+        <version.redhat.eap6.bom>1.0.4.Final-redhat-1</version.redhat.eap6.bom>
+        
         <!-- Versions for local dependencies not eligible for the Integration BOM -->
+        <version.deltaspike>${version.org.apache.deltaspike}</version.deltaspike>
         <version.drools>6.0.0.CR5</version.drools>
         <version.forge>1.2.2.Final</version.forge>
         <version.forge.arquillian>1.0.0.CR7</version.forge.arquillian>
@@ -96,7 +101,6 @@
         <version.saxon>9.2.1.5</version.saxon>
         <version.shrinkwrap.descriptors>2.0.0-alpha-3</version.shrinkwrap.descriptors>
         
-        
         <!-- Versions for dependencies that conflict with the Integration BOM -->
         <version.beanshell>2.0b5</version.beanshell>
         <version.ems>1.3</version.ems>
@@ -107,7 +111,11 @@
         <version.jbossws.jboss720.server.integration>4.2.0.Final</version.jbossws.jboss720.server.integration>
         <version.redhat.eap6>6.1</version.redhat.eap6>
         <version.redhat.eap6.minor>0.Alpha</version.redhat.eap6.minor>
-        <version.redhat.eap6.bom>1.0.4.Final-redhat-1</version.redhat.eap6.bom>
+        
+        <!-- These can be removed once all related dependencies have been merged into the Integration BOM -->
+        <version.camel>2.10.3</version.camel>
+        <version.xalan>2.7.1</version.xalan>
+        <version.weld>1.1.13.Final</version.weld>
         
     </properties>
     <scm>
@@ -557,9 +565,16 @@
                 <scope>import</scope>
             </dependency>
             <dependency>
+                <groupId>org.jboss.integration-platform</groupId>
+                <artifactId>jboss-integration-platform-bom</artifactId>
+                <version>${version.jboss.integration.bom}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
                 <groupId>org.jboss.as</groupId>
                 <artifactId>jboss-as-parent</artifactId>
-                <version>${version.jbossas}</version>
+                <version>${version.jbossas.bom}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
