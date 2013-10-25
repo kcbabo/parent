@@ -85,6 +85,7 @@
         <version.batik>1.7</version.batik>
         <version.clojure>1.3.0-alpha5</version.clojure>
         <version.commons.ssl>0.3.9</version.commons.ssl>
+        <version.commons.logging>1.1.0.jboss</version.commons.logging>
         <version.groovy>2.0.5</version.groovy>
         <version.hamcrest>1.1</version.hamcrest>
         <version.jboss.logging.processor>1.1.0.Final</version.jboss.logging.processor>
@@ -107,15 +108,21 @@
         
         <!-- Require investigation and/or will be removed  -->
         <version.arquillian.container>7.1.3.Final</version.arquillian.container>
+        <version.ironjacamar>1.0.15.Final</version.ironjacamar>
+        <version.junit>4.10</version.junit>
+        <version.mvel>2.1.6.Final</version.mvel>
         <version.jbossws.spi>2.1.2.Final</version.jbossws.spi>
         <version.jbossws.jboss720.server.integration>4.2.0.Final</version.jbossws.jboss720.server.integration>
         <version.redhat.eap6>6.1</version.redhat.eap6>
         <version.redhat.eap6.minor>0.Alpha</version.redhat.eap6.minor>
+        <version.weld>1.1.10.Final</version.weld>
         
         <!-- These can be removed once all related dependencies have been merged into the Integration BOM -->
         <version.camel>2.10.3</version.camel>
-        <version.xalan>2.7.1</version.xalan>
-        <version.weld>1.1.13.Final</version.weld>
+        <version.slf4j>1.7.2</version.slf4j>
+        <version.poi>3.9</version.poi>
+        <version.spring>3.0.7.RELEASE</version.spring>
+        <version.xalan>2.7.1-1.jbossorg</version.xalan>
         
     </properties>
     <scm>
@@ -601,6 +608,11 @@
                 <version>${version.jsch}</version>
             </dependency>
             <dependency>
+                <groupId>commons-logging</groupId>
+                <artifactId>commons-logging</artifactId>
+                <version>${version.commons.logging}</version>
+            </dependency>
+            <dependency>
                 <groupId>io.netty</groupId>
                 <artifactId>netty</artifactId>
                 <version>${version.netty}</version>
@@ -933,6 +945,11 @@
             </dependency>
             <dependency>
                 <groupId>org.apache.xalan</groupId>
+                <artifactId>xalan</artifactId>
+                <version>${version.xalan}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.xalan</groupId>
                 <artifactId>serializer</artifactId>
                 <version>${version.xalan}</version>
             </dependency>
@@ -1063,6 +1080,11 @@
                 <version>${version.ironjacamar}</version>
             </dependency>
             <dependency>
+                <groupId>org.jboss.ironjacamar</groupId>
+                <artifactId>ironjacamar-jdbc</artifactId>
+                <version>${version.ironjacamar}</version>
+            </dependency>
+            <dependency>
                 <groupId>org.jboss.logging</groupId>
                 <artifactId>jboss-logging-processor</artifactId>
                 <version>${version.jboss.logging.processor}</version>
@@ -1071,6 +1093,11 @@
                 <groupId>org.jboss.shrinkwrap.descriptors</groupId>
                 <artifactId>shrinkwrap-descriptors-api-base</artifactId>
                 <version>${version.shrinkwrap.descriptors}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.weld</groupId>
+                <artifactId>weld-core</artifactId>
+                <version>${version.weld}</version>
             </dependency>
             <dependency>
                 <groupId>org.jboss.weld.se</groupId>
@@ -1174,11 +1201,6 @@
                 <groupId>com.github.fungal</groupId>
                 <artifactId>fungal</artifactId>
                 <version>${version.fungal}</version>
-            </dependency>
-            <dependency>
-                <groupId>commons-logging</groupId>
-                <artifactId>commons-logging</artifactId>
-                <version>${version.commons.logging}</version>
             </dependency>
             <dependency>
                 <groupId>mc4j</groupId>
@@ -1517,6 +1539,11 @@
                 </exclusions>
             </dependency>
             <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${version.junit}</version>
+            </dependency>
+            <dependency>
                 <groupId>org.kie</groupId>
                 <artifactId>kie-api</artifactId>
                 <version>${version.kie}</version>
@@ -1582,6 +1609,11 @@
                 <version>${version.kie}</version>
             </dependency>
             <dependency>
+                <groupId>org.mvel</groupId>
+                <artifactId>mvel2</artifactId>
+                <version>${version.mvel}</version>
+            </dependency>
+            <dependency>
                 <groupId>org.riftsaw</groupId>
                 <artifactId>engine</artifactId>
                 <version>${version.riftsaw.engine}</version>
@@ -1618,6 +1650,11 @@
                 <artifactId>switchyard-bpel-console-server</artifactId>
                 <version>${version.riftsaw.engine}</version>
                 <type>war</type>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-log4j12</artifactId>
+                <version>${version.slf4j}</version>
             </dependency>
             
 <!--  ###################################################################
