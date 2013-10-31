@@ -15,9 +15,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>org.jboss.bom</groupId>
-        <artifactId>jboss-bom-parent</artifactId>
-        <version>1.0.4.Final-redhat-1</version>
+        <groupId>org.jboss.integration-platform</groupId>
+        <artifactId>jboss-integration-platform-bom</artifactId>
+        <version>6.0.0.CR1</version>
         <relativePath/>
     </parent>
     <groupId>org.switchyard</groupId>
@@ -55,11 +55,9 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         
         <version.jbossas.bom>7.2.0.Alpha1-redhat-4</version.jbossas.bom>
-        <version.jboss.integration.bom>6.0.0.CR1</version.jboss.integration.bom>
         <version.redhat.eap6.bom>1.0.4.Final-redhat-1</version.redhat.eap6.bom>
         
         <!-- Versions for local dependencies not eligible for the Integration BOM -->
-        <version.deltaspike>${version.org.apache.deltaspike}</version.deltaspike>
         <version.drools>6.0.0.CR5</version.drools>
         <version.forge>1.2.2.Final</version.forge>
         <version.forge.arquillian>1.0.0.CR7</version.forge.arquillian>
@@ -86,6 +84,7 @@
         <version.clojure>1.3.0-alpha5</version.clojure>
         <version.commons.ssl>0.3.9</version.commons.ssl>
         <version.commons.logging>1.1.0.jboss</version.commons.logging>
+        <version.deltaspike>0.3-incubating</version.deltaspike>
         <version.groovy>2.0.5</version.groovy>
         <version.hamcrest>1.1</version.hamcrest>
         <version.jboss.logging.processor>1.1.0.Final</version.jboss.logging.processor>
@@ -101,6 +100,7 @@
         <version.rhq>4.8.0</version.rhq>
         <version.saxon>9.2.1.5</version.saxon>
         <version.shrinkwrap.descriptors>2.0.0-alpha-3</version.shrinkwrap.descriptors>
+        <version.xmlbeans>2.2.0</version.xmlbeans>
         
         <!-- Versions for dependencies that conflict with the Integration BOM -->
         <version.beanshell>2.0b5</version.beanshell>
@@ -108,21 +108,13 @@
         
         <!-- Require investigation and/or will be removed  -->
         <version.arquillian.container>7.1.3.Final</version.arquillian.container>
-        <version.ironjacamar>1.0.15.Final</version.ironjacamar>
         <version.junit>4.10</version.junit>
         <version.mvel>2.1.6.Final</version.mvel>
         <version.jbossws.spi>2.1.2.Final</version.jbossws.spi>
         <version.jbossws.jboss720.server.integration>4.2.0.Final</version.jbossws.jboss720.server.integration>
         <version.redhat.eap6>6.1</version.redhat.eap6>
         <version.redhat.eap6.minor>0.Alpha</version.redhat.eap6.minor>
-        <version.weld>1.1.10.Final</version.weld>
         
-        <!-- These can be removed once all related dependencies have been merged into the Integration BOM -->
-        <version.camel>2.10.3</version.camel>
-        <version.slf4j>1.7.2</version.slf4j>
-        <version.poi>3.9</version.poi>
-        <version.spring>3.0.7.RELEASE</version.spring>
-        <version.xalan>2.7.1-1.jbossorg</version.xalan>
         
     </properties>
     <scm>
@@ -572,13 +564,6 @@
                 <scope>import</scope>
             </dependency>
             <dependency>
-                <groupId>org.jboss.integration-platform</groupId>
-                <artifactId>jboss-integration-platform-bom</artifactId>
-                <version>${version.jboss.integration.bom}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
                 <groupId>org.jboss.as</groupId>
                 <artifactId>jboss-as-parent</artifactId>
                 <version>${version.jbossas.bom}</version>
@@ -662,7 +647,7 @@
             <dependency>
                 <groupId>org.apache.camel</groupId>
                 <artifactId>camel-amqp</artifactId>
-                <version>${version.camel}</version>
+                <version>${version.org.apache.camel}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>com.sun.xml.bind</groupId>
@@ -673,7 +658,7 @@
             <dependency>
                 <groupId>org.apache.camel</groupId>
                 <artifactId>camel-atom</artifactId>
-                <version>${version.camel}</version>
+                <version>${version.org.apache.camel}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>com.sun.xml.bind</groupId>
@@ -684,7 +669,7 @@
             <dependency>
                 <groupId>org.apache.camel</groupId>
                 <artifactId>camel-core</artifactId>
-                <version>${version.camel}</version>
+                <version>${version.org.apache.camel}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>com.sun.xml.bind</groupId>
@@ -695,7 +680,7 @@
             <dependency>
                 <groupId>org.apache.camel</groupId>
                 <artifactId>camel-cdi</artifactId>
-                <version>${version.camel}</version>
+                <version>${version.org.apache.camel}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>com.sun.xml.bind</groupId>
@@ -706,7 +691,7 @@
             <dependency>
                 <groupId>org.apache.camel</groupId>
                 <artifactId>camel-cxf</artifactId>
-                <version>${version.camel}</version>
+                <version>${version.org.apache.camel}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>com.sun.xml.bind</groupId>
@@ -717,7 +702,7 @@
             <dependency>
                 <groupId>org.apache.camel</groupId>
                 <artifactId>camel-jaxb</artifactId>
-                <version>${version.camel}</version>
+                <version>${version.org.apache.camel}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>com.sun.xml.bind</groupId>
@@ -728,7 +713,7 @@
             <dependency>
                 <groupId>org.apache.camel</groupId>
                 <artifactId>camel-jms</artifactId>
-                <version>${version.camel}</version>
+                <version>${version.org.apache.camel}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>com.sun.xml.bind</groupId>
@@ -739,7 +724,7 @@
             <dependency>
                 <groupId>org.apache.camel</groupId>
                 <artifactId>camel-mail</artifactId>
-                <version>${version.camel}</version>
+                <version>${version.org.apache.camel}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>com.sun.xml.bind</groupId>
@@ -750,7 +735,7 @@
             <dependency>
                 <groupId>org.apache.camel</groupId>
                 <artifactId>camel-mvel</artifactId>
-                <version>${version.camel}</version>
+                <version>${version.org.apache.camel}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>com.sun.xml.bind</groupId>
@@ -761,7 +746,7 @@
             <dependency>
                 <groupId>org.apache.camel</groupId>
                 <artifactId>camel-netty</artifactId>
-                <version>${version.camel}</version>
+                <version>${version.org.apache.camel}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>com.sun.xml.bind</groupId>
@@ -772,7 +757,7 @@
             <dependency>
                 <groupId>org.apache.camel</groupId>
                 <artifactId>camel-jpa</artifactId>
-                <version>${version.camel}</version>
+                <version>${version.org.apache.camel}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>com.sun.xml.bind</groupId>
@@ -783,7 +768,7 @@
             <dependency>
                 <groupId>org.apache.camel</groupId>
                 <artifactId>camel-spring</artifactId>
-                <version>${version.camel}</version>
+                <version>${version.org.apache.camel}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>com.sun.xml.bind</groupId>
@@ -794,7 +779,7 @@
             <dependency>
                 <groupId>org.apache.camel</groupId>
                 <artifactId>camel-sql</artifactId>
-                <version>${version.camel}</version>
+                <version>${version.org.apache.camel}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>com.sun.xml.bind</groupId>
@@ -805,7 +790,7 @@
             <dependency>
                 <groupId>org.apache.camel</groupId>
                 <artifactId>camel-ftp</artifactId>
-                <version>${version.camel}</version>
+                <version>${version.org.apache.camel}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>com.sun.xml.bind</groupId>
@@ -816,7 +801,7 @@
             <dependency>
                 <groupId>org.apache.camel</groupId>
                 <artifactId>camel-quartz</artifactId>
-                <version>${version.camel}</version>
+                <version>${version.org.apache.camel}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>com.sun.xml.bind</groupId>
@@ -827,7 +812,7 @@
             <dependency>
                 <groupId>org.apache.camel</groupId>
                 <artifactId>camel-ognl</artifactId>
-                <version>${version.camel}</version>
+                <version>${version.org.apache.camel}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>com.sun.xml.bind</groupId>
@@ -838,7 +823,7 @@
             <dependency>
                 <groupId>org.apache.camel</groupId>
                 <artifactId>camel-test</artifactId>
-                <version>${version.camel}</version>
+                <version>${version.org.apache.camel}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>com.sun.xml.bind</groupId>
@@ -849,7 +834,7 @@
             <dependency>
                 <groupId>org.apache.camel</groupId>
                 <artifactId>camel-test-spring</artifactId>
-                <version>${version.camel}</version>
+                <version>${version.org.apache.camel}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>com.sun.xml.bind</groupId>
@@ -860,7 +845,7 @@
             <dependency>
                 <groupId>org.apache.camel</groupId>
                 <artifactId>camel-soap</artifactId>
-                <version>${version.camel}</version>
+                <version>${version.org.apache.camel}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>com.sun.xml.bind</groupId>
@@ -871,7 +856,7 @@
             <dependency>
                 <groupId>org.apache.camel</groupId>
                 <artifactId>camel-script</artifactId>
-                <version>${version.camel}</version>
+                <version>${version.org.apache.camel}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>com.sun.xml.bind</groupId>
@@ -896,7 +881,7 @@
             <dependency>
                 <groupId>org.apache.poi</groupId>
                 <artifactId>poi-ooxml-schemas</artifactId>
-                <version>${version.poi}</version>
+                <version>${version.org.apache.poi}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.qpid</groupId>
@@ -952,6 +937,11 @@
                 <groupId>org.apache.xalan</groupId>
                 <artifactId>serializer</artifactId>
                 <version>${version.xalan}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.xmlbeans</groupId>
+                <artifactId>xmlbeans</artifactId>
+                <version>${version.xmlbeans}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.xmlgraphics</groupId>
@@ -1044,6 +1034,11 @@
                 <version>${version.hamcrest}</version>
             </dependency>
             <dependency>
+                <groupId>org.hornetq</groupId>
+                <artifactId>hornetq-ra</artifactId>
+                <version>${version.org.hornetq}</version>
+            </dependency>
+            <dependency>
                 <groupId>org.jboss.bpm</groupId>
                 <artifactId>activity-monitor-model</artifactId>
                 <version>${version.activity.monitor.model}</version>
@@ -1057,32 +1052,27 @@
             <dependency>
                 <groupId>org.jboss.ironjacamar</groupId>
                 <artifactId>ironjacamar-core-api</artifactId>
-                <version>${version.ironjacamar}</version>
+                <version>${version.org.jboss.ironjacamar}</version>
             </dependency>
             <dependency>
                 <groupId>org.jboss.ironjacamar</groupId>
                 <artifactId>ironjacamar-embedded</artifactId>
-                <version>${version.ironjacamar}</version>
+                <version>${version.org.jboss.ironjacamar}</version>
             </dependency>
             <dependency>
                 <groupId>org.jboss.ironjacamar</groupId>
                 <artifactId>ironjacamar-deployers-fungal</artifactId>
-                <version>${version.ironjacamar}</version>
+                <version>${version.org.jboss.ironjacamar}</version>
             </dependency>
             <dependency>
                 <groupId>org.jboss.ironjacamar</groupId>
                 <artifactId>ironjacamar-deployers-common</artifactId>
-                <version>${version.ironjacamar}</version>
+                <version>${version.org.jboss.ironjacamar}</version>
             </dependency>
             <dependency>
                 <groupId>org.jboss.ironjacamar</groupId>
                 <artifactId>ironjacamar-common-impl-papaki</artifactId>
-                <version>${version.ironjacamar}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.jboss.ironjacamar</groupId>
-                <artifactId>ironjacamar-jdbc</artifactId>
-                <version>${version.ironjacamar}</version>
+                <version>${version.org.jboss.ironjacamar}</version>
             </dependency>
             <dependency>
                 <groupId>org.jboss.logging</groupId>
@@ -1095,14 +1085,9 @@
                 <version>${version.shrinkwrap.descriptors}</version>
             </dependency>
             <dependency>
-                <groupId>org.jboss.weld</groupId>
-                <artifactId>weld-core</artifactId>
-                <version>${version.weld}</version>
-            </dependency>
-            <dependency>
                 <groupId>org.jboss.weld.se</groupId>
                 <artifactId>weld-se-core</artifactId>
-                <version>${version.weld}</version>
+                <version>${version.org.jboss.weld}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>org.slf4j</groupId>
@@ -1117,6 +1102,11 @@
                         <artifactId>cal10n-api</artifactId>
                     </exclusion>
                 </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.weld.servlet</groupId>
+                <artifactId>weld-servlet</artifactId>
+                <version>${version.org.jboss.weld}</version>
             </dependency>
             <dependency>
                 <groupId>org.jvnet.mock-javamail</groupId>
@@ -1181,12 +1171,12 @@
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-asm</artifactId>
-                <version>${version.spring}</version>
+                <version>${version.org.springframework}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-jms</artifactId>
-                <version>${version.spring}</version>
+                <version>${version.org.springframework}</version>
             </dependency>
             <dependency>
                 <groupId>xml-apis</groupId>
@@ -1654,7 +1644,7 @@
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-log4j12</artifactId>
-                <version>${version.slf4j}</version>
+                <version>${version.org.slf4j}</version>
             </dependency>
             
 <!--  ###################################################################
