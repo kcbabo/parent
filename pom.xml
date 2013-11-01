@@ -110,6 +110,7 @@
         <version.arquillian.container>7.1.3.Final</version.arquillian.container>
         <version.junit>4.10</version.junit>
         <version.mvel>2.1.6.Final</version.mvel>
+        <version.org.hornetq>2.3.0.CR1</version.org.hornetq>
         <version.jbossws.spi>2.1.2.Final</version.jbossws.spi>
         <version.jbossws.jboss720.server.integration>4.2.0.Final</version.jbossws.jboss720.server.integration>
         <version.redhat.eap6>6.1</version.redhat.eap6>
@@ -929,12 +930,7 @@
                 </exclusions>
             </dependency>
             <dependency>
-                <groupId>org.apache.xalan</groupId>
-                <artifactId>xalan</artifactId>
-                <version>${version.xalan}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.xalan</groupId>
+                <groupId>xalan</groupId>
                 <artifactId>serializer</artifactId>
                 <version>${version.xalan}</version>
             </dependency>
